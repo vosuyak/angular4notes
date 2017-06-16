@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    padding: 1em;
+    border: solid 2px black;
+    border-radius: 1em;
+    width: 300px;
+    position: relative;
+    margin: auto;
+}
+div{
+    position: relative;
+}
+.main{
+    width: 300px;
+    min-height: 316px;
+    text-align: center;
+    margin: 0 auto;
+    border: solid 2px gray;
+    border-bottom: 20px;
+}
+h1{
+    text-align: center;
+    background: lightblue;
+    padding: 30px 0px;
+    margin-top:0;
+    color: white;
+}
+.addItem{
+    position: relative;
+    padding-bottom: 0pc;
+    height: 30px;
+}
+.addText{
+    width: 70%;
+    height: 30px;
+    padding: 5px;
+    font-size: 20px;
+}
+.addItem button{
+    height: 45px;
+    width: 50px;
+    padding: 5px;
+}
+.addItem ul{
+    list-style: none;
+    font-style: 20px;
+    height: 150px;
+    color: darkgray;
+    overflow: auto;
+    margin-left: -40px;
+    margin-bottom: 10px;
+}
+
+.addItem li{
+    background: lightgoldenrodyellow;
+    border-bottom: solid 1px black;
+    padding: 10px;
+    margin-bottom: 5px;
+
+}
+.addItem li span{
+    float: right;
+}
+section{
+    margin: auto;
+    position: relative;
+    border:solid 2px black;
+    width: 300px;
+    margin-top: 10px;
+}
+

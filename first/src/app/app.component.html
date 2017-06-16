@@ -1,0 +1,123 @@
+<!--The whole content below can be removed with the new code.-->
+<div class="content-in-container">
+  <h1>
+    Welcome to {{title}}!!
+  </h1><br>
+  <section class="container">
+    <h3>{{intern.name}}</h3><br>
+
+<!--this is objects array and strings living in app.component.ts file-->
+    <p>
+      ng Type:{{intern.ngWhat}} <br>
+      position: {{intern.position}}<br>
+      focus: {{intern.focus}}<br>
+      Hometown of: {{intern.hometowncity}}<br>
+      {{array[2]}}
+    </p>
+    <ul>
+      <li *ngFor = "let i of array">{{i}}</li>
+    </ul>
+
+<!--If, else, then, and booleans found in app.component.ts-->
+    <p *ngIf = "isTrue">The idTrue var found in product.component.html is set to true</p>  
+    <p *ngIf = "myName == 'Victor'">Name is Victor ngIf standard operation choices</p>
+    <p *ngIf = "isTrue; then firstTemp else firstTemp">Name is Victor ngIf standard operation choices</p>  
+    <ng-template #firstTemp>This is first template</ng-template><br>
+    <ng-template #secTemp>This is first template</ng-template><br>  
+
+<!--this is where the link are located-->
+<!--import RouterModule add it to imports create forRoot add path 
+include components used-->
+    <a routerLink="/member">Member</a>
+    <a routerLink="/product">Product</a>  
+    <a routerLink="/mycomponent">my-component</a>  
+    <br>
+<!--below is where the content from each component html will live-->
+    <router-outlet></router-outlet>
+  </section>
+
+<!--This is the language list area-->
+<!--functions and variables can be found in app.component.ts file-->
+  <section>
+    <div class="main">
+      <h1>List</h1>
+      <div class="addItem">
+        <input [(ngModel)] = "newItem" type="" placeholder="add" class="addText">
+        <button (click) = "pushItem()">Add</button>
+        <ul>
+          <li *ngFor ="let i of items; let ind = index">{{i}}
+          <span (click)="removeItem(ind)">X</span></li>
+        </ul>
+      </div>
+     </div>  
+  </section>
+
+</div><!---->
+
+<!--this is the default pipe area-->
+  <section>
+    <h2>{{name | uppercase}}</h2>  
+    <h2>{{name | lowercase}}</h2>   
+  </section>
+
+ <!--buuilt in day pipe-->
+ <!--file found in app.component.ts-->
+  <section>
+    <p><b>Without using the pipe</b> {{day}} <br>
+      <b>using the pipe</b> {{day | date}} <br>
+      <b>With using the pipe</b> & 'shortDate' {{day | date: 'shortDate'}} <br>
+      <b>With using the pipe</b> & 'fullDate'{{day | date: 'fullDate'}} <br>
+      <b>With using the pipe</b> & 'fullDate'{{day | date: 'fullDate' | uppercase}} <br>
+    </p>
+    <p><b>print the new made pipe as descending:</b> <br>{{arr | sort: 'descending'}}</p>
+    <p><b>print the new made pipe as ascending:</b> <br>{{arr | sort: 'ascending'}}  </p>
+  </section>
+                                          <!--form area-->
+<!--template form-->
+  <!--<form action="" class="container"
+    #userForm = "ngForm"
+    (ngSubmit)= "onSubmit(userForm.value)">
+      <input type="text" name="firstName" placeholder="first name" ngModel><br>
+      <input type="text" name="lasttName" placeholder="first name" ngModel><br>
+    <select name="languages" id="" ngModel>
+      <option value="c++">C++</option>
+      <option value="java">Java</option>
+      <option value="Angular">Angular</option>
+    <br><br>
+    </select>
+      <input type="submit" value="submit">  
+  </form>-->
+
+<!--model form-->
+<form action="" class="container"
+[formGroup] = "form"
+(ngSubmit)= "onSubmit(form.value)">
+  <input type="text" name="firstName" placeholder="first name" formControlName="firstName"><br>
+  <input type="text" name="lasttName" placeholder="first name" formControlName="lastName"><br>
+<select name="languages" id="" formControlName="languages">
+  <option value="c++">C++</option>
+  <option value="java">Java</option>
+  <option value="Angular">Angular</option>
+<br><br>
+</select>
+  <input [disabled]="!form.valid" type="submit" value="submit">  
+</form>
+
+<!--converter-->
+  <!--<section>
+      <form action="" class="container"
+      [formGroup]="form">
+      <h1>Base converter</h1>
+      <input type="text" name="decimal" placeholder="decimal" 
+      (ngModelChanged)= "decimalChanged(oldValue,newValue = $event)"
+      formControlName="decimal"><br>
+        <input type="text" name="binary" placeholder="binary" 
+      formControlName="binary"><br>
+        <input type="text" name="octal" placeholder="octal" 
+      formControlName="octal"><br>
+        <input type="text" name="hexa" placeholder="hexa" 
+      formControlName="hexa"><br>
+      </form>
+  </section>-->
+<!--converter end-->
+<app-product></app-product>
